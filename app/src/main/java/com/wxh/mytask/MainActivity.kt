@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
         // hook up navigation controller with navigation view
         NavigationUI.setupWithNavController(binding.navView, navController)
+        NavigationUI.setupWithNavController(binding.bottomNav, navController)
     }
 
     override fun onSupportNavigateUp(): Boolean {
