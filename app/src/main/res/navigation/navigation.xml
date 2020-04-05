@@ -12,4 +12,8 @@
         android:id="@+id/aboutFragment"
         android:name="com.wxh.mytask.AboutFragment"
         android:label="AboutFragment" />
+    <fragment
+        android:id="@+id/memoFragment"
+        android:name="com.wxh.mytask.MemoFragment"
+        android:label="MemoFragment" />
 </navigation>
