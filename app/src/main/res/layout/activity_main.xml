@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:menu="@menu/bottom_nav_menu"
+                app:menu="@menu/nav_bottom_menu"
                 tools:layout_editor_absoluteX="-44dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
