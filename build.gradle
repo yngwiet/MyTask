@@ -9,6 +9,11 @@ buildscript {
         version_material = "1.1.0"
         version_navigation = "1.0.0"
         version_timber = "4.7.1"
+
+        roomVersion = '2.2.5'
+        archLifecycleVersion = '2.2.0'
+        coroutines = '1.3.4'
+        coreTestingVersion = '2.1.0'
     }
     repositories {
         google()

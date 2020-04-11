@@ -6,4 +6,5 @@
     <string name="about_title">About</string>
     <string name="memo">Memo</string>
     <string name="tasks">tasks</string>
+    <string name="placeholder">Placeholder</string>
 </resources>
