@@ -22,4 +22,7 @@ class TasksViewModel(application: MyTaskApplication) : AndroidViewModel(applicat
         taskRepository.insert(task)
     }
 
+    fun delete(task: Task) = taskRepository.delete(task)
+
+    fun update(task: Task) = taskRepository.update(task)
 }
