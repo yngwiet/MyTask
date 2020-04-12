@@ -3,10 +3,10 @@
 
     <item
         android:id="@+id/tasksFragment"
-        android:icon="@android:drawable/btn_star_big_on"
+        android:icon="@drawable/ic_assignment_black_24dp"
         android:title="@string/tasks" />
     <item
         android:id="@+id/memoFragment"
-        android:icon="@android:drawable/ic_menu_agenda"
+        android:icon="@drawable/ic_event_note_black_24dp"
         android:title="@string/memo" />
 </menu>
