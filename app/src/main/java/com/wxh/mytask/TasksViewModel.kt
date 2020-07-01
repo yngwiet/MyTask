@@ -1,12 +1,13 @@
 package com.wxh.mytask
 
+import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class TasksViewModel(application: MyTaskApplication) : AndroidViewModel(application) {
+class TasksViewModel(application: Application) : AndroidViewModel(application) {
 
     private val taskRepository: TaskRepository
 
