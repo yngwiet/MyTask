@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import androidx.recyclerview.widget.RecyclerView
 
-class TasksListAdapter() : RecyclerView.Adapter<TasksListAdapter.TaskViewHolder>() {
+class TasksListAdapter : RecyclerView.Adapter<TasksListAdapter.TaskViewHolder>() {
 
     private var mTasks: List<Task> = emptyList()
 
@@ -16,7 +16,7 @@ class TasksListAdapter() : RecyclerView.Adapter<TasksListAdapter.TaskViewHolder>
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
         val taskItemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.tasks_recyclerview_item, parent)
+            LayoutInflater.from(parent.context).inflate(R.layout.tasks_recyclerview_item, parent, false)
         return TaskViewHolder(taskItemView)
     }
 
