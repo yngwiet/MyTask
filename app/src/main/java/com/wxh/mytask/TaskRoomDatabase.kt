@@ -22,8 +22,9 @@ abstract class TaskRoomDatabase : RoomDatabase() {
                     val taskDao = database.taskDao()
                     val taskList: List<Task>? = taskDao.getAllTasks().value
                     if (taskList == null || taskList.isEmpty()) {
-                        val sampleTask = Task(1, "Learn", "Learn Kotlin and Android!")
-                        taskDao.insertTask(sampleTask)
+                        sampleTasks.forEach {
+                            taskDao.insertTask(it)
+                        }
                     }
                 }
             }
@@ -38,6 +39,11 @@ abstract class TaskRoomDatabase : RoomDatabase() {
     }
 
     companion object {
+
+        val sampleTasks: List<Task> = listOf(
+            Task("Learn", "Learn Kotlin and Android!"),
+            Task("Play", "Play!"))
+
         // Singleton prevents multiple instances of database opening at the
         // same time.
         @Volatile

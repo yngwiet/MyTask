@@ -7,4 +7,10 @@
     <string name="memo">Memo</string>
     <string name="tasks">Tasks</string>
     <string name="placeholder">Placeholder</string>
+    <string name="checkbox_default">CheckBox</string>
+    <string name="hint_task_title">Add title</string>
+    <string name="button_save">save</string>
+    <string name="no_title">No Title</string>
+    <string name="no_detail">No Detail</string>
+    <string name="hint_task_detail">Add detail</string>
 </resources>

@@ -1,5 +1,7 @@
 package com.wxh.mytask
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.wxh.mytask.databinding.FragmentTasksBinding
 
 class TasksFragment : Fragment() {
+
+    private val newTaskActivityRequestCode = 1
 
     private lateinit var binding: FragmentTasksBinding
     private lateinit var tasksViewModel: TasksViewModel
@@ -37,10 +41,20 @@ class TasksFragment : Fragment() {
 
         val fab = binding.addTaskFab
         fab.setOnClickListener {
-
+            val intent = Intent(context, NewTaskActivity::class.java)
+            startActivityForResult(intent, newTaskActivityRequestCode)
         }
 
         return binding.root
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == newTaskActivityRequestCode && resultCode == Activity.RESULT_OK) {
+            val title = data?.getStringExtra(NewTaskActivity.EXTRA_TITLE) ?: getString(R.string.no_title)
+            val detail = data?.getStringExtra(NewTaskActivity.EXTRA_DETAIL) ?: getString(R.string.no_detail)
+            tasksViewModel.insert(Task(title, detail))
+        }
+    }
 }
