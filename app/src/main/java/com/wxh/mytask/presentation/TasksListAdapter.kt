@@ -1,10 +1,12 @@
-package com.wxh.mytask
+package com.wxh.mytask.presentation
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import androidx.recyclerview.widget.RecyclerView
+import com.wxh.mytask.R
+import com.wxh.mytask.data.Task
 
 class TasksListAdapter : RecyclerView.Adapter<TasksListAdapter.TaskViewHolder>() {
 

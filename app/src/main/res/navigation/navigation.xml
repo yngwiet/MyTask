@@ -6,14 +6,14 @@
 
     <fragment
         android:id="@+id/tasksFragment"
-        android:name="com.wxh.mytask.TasksFragment"
+        android:name="com.wxh.mytask.presentation.TasksFragment"
         android:label="TasksFragment" />
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="com.wxh.mytask.AboutFragment"
+        android:name="com.wxh.mytask.presentation.AboutFragment"
         android:label="AboutFragment" />
     <fragment
         android:id="@+id/memoFragment"
-        android:name="com.wxh.mytask.MemoFragment"
+        android:name="com.wxh.mytask.presentation.MemoFragment"
         android:label="MemoFragment" />
 </navigation>

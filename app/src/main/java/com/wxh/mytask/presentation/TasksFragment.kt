@@ -1,4 +1,4 @@
-package com.wxh.mytask
+package com.wxh.mytask.presentation
 
 import android.app.Activity
 import android.content.Intent
@@ -11,6 +11,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.wxh.mytask.R
+import com.wxh.mytask.data.Task
 import com.wxh.mytask.databinding.FragmentTasksBinding
 
 class TasksFragment : Fragment() {
@@ -25,7 +27,8 @@ class TasksFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_tasks, container, false)
+        binding = DataBindingUtil.inflate(inflater,
+            R.layout.fragment_tasks, container, false)
 
         val recyclerView = binding.tasksRecyclerview
         val adapter = TasksListAdapter()
@@ -52,8 +55,12 @@ class TasksFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == newTaskActivityRequestCode && resultCode == Activity.RESULT_OK) {
-            val title = data?.getStringExtra(NewTaskActivity.EXTRA_TITLE) ?: getString(R.string.no_title)
-            val detail = data?.getStringExtra(NewTaskActivity.EXTRA_DETAIL) ?: getString(R.string.no_detail)
+            val title = data?.getStringExtra(NewTaskActivity.EXTRA_TITLE) ?: getString(
+                R.string.no_title
+            )
+            val detail = data?.getStringExtra(NewTaskActivity.EXTRA_DETAIL) ?: getString(
+                R.string.no_detail
+            )
             tasksViewModel.insert(Task(title, detail))
         }
     }

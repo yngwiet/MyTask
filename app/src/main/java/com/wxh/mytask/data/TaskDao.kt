@@ -1,7 +1,8 @@
-package com.wxh.mytask
+package com.wxh.mytask.data
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.wxh.mytask.data.Task
 
 @Dao
 interface TaskDao {

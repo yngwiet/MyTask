@@ -1,4 +1,4 @@
-package com.wxh.mytask
+package com.wxh.mytask.data
 
 import android.content.Context
 import androidx.room.Database
@@ -42,7 +42,8 @@ abstract class TaskRoomDatabase : RoomDatabase() {
 
         val sampleTasks: List<Task> = listOf(
             Task("Learn", "Learn Kotlin and Android!"),
-            Task("Play", "Play!"))
+            Task("Play", "Play!")
+        )
 
         // Singleton prevents multiple instances of database opening at the
         // same time.
@@ -53,7 +54,8 @@ abstract class TaskRoomDatabase : RoomDatabase() {
             context: Context,
             scope: CoroutineScope
         ): TaskRoomDatabase {
-            val tempInstance = INSTANCE
+            val tempInstance =
+                INSTANCE
             if (tempInstance != null) {
                 return tempInstance
             }
@@ -62,7 +64,11 @@ abstract class TaskRoomDatabase : RoomDatabase() {
                     context.applicationContext,
                     TaskRoomDatabase::class.java,
                     "task_database"
-                ).addCallback(TaskDatabaseCallback(scope)).build()
+                ).addCallback(
+                    TaskDatabaseCallback(
+                        scope
+                    )
+                ).build()
                 INSTANCE = instance
                 return instance
             }

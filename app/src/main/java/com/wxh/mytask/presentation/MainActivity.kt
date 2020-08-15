@@ -1,4 +1,4 @@
-package com.wxh.mytask
+package com.wxh.mytask.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
+import com.wxh.mytask.R
 import com.wxh.mytask.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -19,12 +20,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this,
+            R.layout.activity_main
+        )
         drawerLayout = binding.drawerLayout
 
         // specify top level destinations so drawer icon will display when they are displayed
         appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.tasksFragment, R.id.memoFragment),
+            setOf(
+                R.id.tasksFragment,
+                R.id.memoFragment
+            ),
             drawerLayout
         )
 
