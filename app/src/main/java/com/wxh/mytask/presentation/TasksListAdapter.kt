@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.wxh.mytask.R
 import com.wxh.mytask.data.Task
 
+// TODO: 2020-08-23 pass viewmodel 
 class TasksListAdapter : RecyclerView.Adapter<TasksListAdapter.TaskViewHolder>() {
 
     private var mTasks: List<Task> = emptyList()

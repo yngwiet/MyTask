@@ -7,33 +7,30 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 @Database(entities = [Task::class], version = 1, exportSchema = false)
 abstract class TaskRoomDatabase : RoomDatabase() {
 
     abstract fun taskDao(): TaskDao
 
-    private class TaskDatabaseCallback(private val scope: CoroutineScope) : RoomDatabase.Callback() {
+    private class TaskDatabaseCallback(private val scope: CoroutineScope) :
+        RoomDatabase.Callback() {
 
         override fun onOpen(db: SupportSQLiteDatabase) {
             super.onOpen(db)
-            INSTANCE?.let { database ->
-                scope.launch {
-                    val taskDao = database.taskDao()
-                    val taskList: List<Task>? = taskDao.getAllTasks().value
-                    if (taskList == null || taskList.isEmpty()) {
-                        sampleTasks.forEach {
-                            taskDao.insertTask(it)
-                        }
-                    }
-                }
-            }
+            Timber.d("onOpen of database")
         }
 
         override fun onCreate(db: SupportSQLiteDatabase) {
             super.onCreate(db)
+            Timber.d("onCreate of database")
             INSTANCE?.let { database ->
-                database.taskDao().getAllTasks()
+                scope.launch {
+                    sampleTasks.forEach {
+                        database.taskDao().insertTask(it)
+                    }
+                }
             }
         }
     }

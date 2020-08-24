@@ -2,7 +2,6 @@ package com.wxh.mytask.data
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.wxh.mytask.data.Task
 
 @Dao
 interface TaskDao {
@@ -14,10 +13,10 @@ interface TaskDao {
     fun getAllTasks(): LiveData<List<Task>>
 
     @Update
-    fun updateTask(task: Task)
+    suspend fun updateTask(task: Task)
 
     @Delete
-    fun deleteTask(task: Task)
+    suspend fun deleteTask(task: Task)
 
     @Query("DELETE FROM task_table")
     suspend fun deleteAllTasks()

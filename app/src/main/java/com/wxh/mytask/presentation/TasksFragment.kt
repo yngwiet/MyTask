@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.wxh.mytask.R
 import com.wxh.mytask.data.Task
 import com.wxh.mytask.databinding.FragmentTasksBinding
+import timber.log.Timber
 
 class TasksFragment : Fragment() {
 
@@ -38,6 +39,7 @@ class TasksFragment : Fragment() {
         tasksViewModel = ViewModelProvider(this).get(TasksViewModel::class.java)
         tasksViewModel.allTasks.observe(viewLifecycleOwner, Observer {
             it?.let {
+                Timber.d("on tasks data changed, size: ${it.size}")
                 adapter.setTasks(it)
             }
         })

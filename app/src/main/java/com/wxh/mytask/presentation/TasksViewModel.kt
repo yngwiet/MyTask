@@ -9,6 +9,7 @@ import com.wxh.mytask.data.TaskRepository
 import com.wxh.mytask.data.TaskRoomDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 class TasksViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -25,11 +26,19 @@ class TasksViewModel(application: Application) : AndroidViewModel(application) {
     /**
      * Launching a new coroutine to insert the data in a non-blocking way
      */
-    fun insert(task: Task) = viewModelScope.launch(Dispatchers.IO) {
+    fun insert(task: Task) = viewModelScope.launch {
         taskRepository.insert(task)
     }
 
-    fun delete(task: Task) = taskRepository.delete(task)
+    fun delete(task: Task) = viewModelScope.launch {
+        taskRepository.delete(task)
+    }
 
-    fun update(task: Task) = taskRepository.update(task)
+    fun deleteAllTasks() = viewModelScope.launch {
+        taskRepository.deleteAllTasks()
+    }
+
+    fun update(task: Task) = viewModelScope.launch {
+        taskRepository.update(task)
+    }
 }
