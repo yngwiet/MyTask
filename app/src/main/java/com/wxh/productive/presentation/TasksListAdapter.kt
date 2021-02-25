@@ -1,12 +1,12 @@
-package com.wxh.mytask.presentation
+package com.wxh.productive.presentation
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import androidx.recyclerview.widget.RecyclerView
-import com.wxh.mytask.R
-import com.wxh.mytask.data.Task
+import com.wxh.productive.R
+import com.wxh.productive.data.Task
 
 // TODO: 2020-08-23 pass viewmodel 
 class TasksListAdapter : RecyclerView.Adapter<TasksListAdapter.TaskViewHolder>() {

@@ -1,4 +1,4 @@
-package com.wxh.mytask
+package com.wxh.productive
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

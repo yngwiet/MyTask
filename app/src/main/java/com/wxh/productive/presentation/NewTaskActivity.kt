@@ -1,4 +1,4 @@
-package com.wxh.mytask.presentation
+package com.wxh.productive.presentation
 
 import android.app.Activity
 import android.content.Intent
@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
-import com.wxh.mytask.R
+import com.wxh.productive.R
 
 class NewTaskActivity : AppCompatActivity() {
 
@@ -37,7 +37,7 @@ class NewTaskActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val EXTRA_TITLE = "com.wxh.mytask.EXTRA_TITLE"
-        const val EXTRA_DETAIL = "com.wxh.mytask.EXTRA_DETAIL"
+        const val EXTRA_TITLE = "com.wxh.productive.EXTRA_TITLE"
+        const val EXTRA_DETAIL = "com.wxh.productive.EXTRA_DETAIL"
     }
 }

@@ -1,15 +1,13 @@
-package com.wxh.mytask.presentation
+package com.wxh.productive.presentation
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.wxh.mytask.data.Task
-import com.wxh.mytask.data.TaskRepository
-import com.wxh.mytask.data.TaskRoomDatabase
-import kotlinx.coroutines.Dispatchers
+import com.wxh.productive.data.Task
+import com.wxh.productive.data.TaskRepository
+import com.wxh.productive.data.TaskRoomDatabase
 import kotlinx.coroutines.launch
-import timber.log.Timber
 
 class TasksViewModel(application: Application) : AndroidViewModel(application) {
 

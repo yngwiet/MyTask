@@ -12,7 +12,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.wxh.mytask"
+        applicationId "com.wxh.productive"
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 1

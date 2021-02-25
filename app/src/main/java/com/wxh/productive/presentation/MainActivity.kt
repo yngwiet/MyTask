@@ -1,4 +1,4 @@
-package com.wxh.mytask.presentation
+package com.wxh.productive.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -7,8 +7,8 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
-import com.wxh.mytask.R
-import com.wxh.mytask.databinding.ActivityMainBinding
+import com.wxh.productive.R
+import com.wxh.productive.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
