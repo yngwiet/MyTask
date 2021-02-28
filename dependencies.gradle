@@ -1,0 +1,67 @@
+ext {
+        versions = [
+                minSdk             : 19,
+                compileSdk         : 30,
+                targteSdk          : 30,
+                versionCode        : 1,
+                versionName        : "1.0",
+                androidGradlePlugin: "4.1.2",
+                kotlin             : "1.3.72",
+                coroutines         : "1.4.2",
+                material           : "1.3.0",
+                coreKtx            : "1.3.2",
+                appcompat          : "1.2.0",
+                constraintLayout   : "2.0.4",
+                navigationSafeArgs : "1.0.0",
+                navigationFragment : "2.3.0",
+                room               : "2.2.6",
+                lifecycle          : "2.3.0",
+                junit              : "4.13",
+                archCoreTesting    : "2.1.0",
+                androidxJunit      : "1.1.2",
+                espresso           : "3.3.0",
+                timber             : "4.7.1"
+        ]
+
+        libs = [
+                androidGradlePlugin: "com.android.tools.build:gradle:$versions.androidGradlePlugin",
+                kotlin             : [
+                        stdlib      : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin",
+                        gradlePlugin: "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
+
+                ],
+                coroutines         : [
+                        core   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines",
+                        android: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines"
+                ],
+                material           : "com.google.android.material:material:$versions.material",
+                androidx           : [
+                        coreKtx         : "androidx.core:core-ktx:$versions.coreKtx",
+                        appcompat       : "androidx.appcompat:appcompat:$versions.appcompat",
+                        constraintLayout: "androidx.constraintlayout:constraintlayout:$versions.constraintLayout",
+                        navigation      : [
+                                safeArgsPlugin: "android.arch.navigation:navigation-safe-args-gradle-plugin:$versions.navigationSafeArgs",
+                                fragment      : "androidx.navigation:navigation-fragment-ktx:$versions.navigationFragment",
+                        ],
+                        room            : [
+                                runtime : "androidx.room:room-runtime:$versions.room",
+                                ktx     : "androidx.room:room-ktx:$versions.room",
+                                compiler: "androidx.room:room-compiler:$versions.room",
+                                testing : "androidx.room:room-testing:$versions.room"
+
+                        ],
+                        lifecycle       : [
+//                        extension: "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle",
+                        compiler : "androidx.lifecycle:lifecycle-compiler:$versions.lifecycle",
+                        viewmodel: "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle"
+                        ],
+                        archCoreTesting : "androidx.arch.core:core-testing:$versions.archCoreTesting",
+                        test            : [
+                                junit   : "androidx.test.ext:junit:$versions.androidxJunit",
+                                espresso: "androidx.test.espresso:espresso-core:$versions.espresso"
+                        ]
+                ],
+                junit              : "junit:junit:$versions.junit",
+                timber             : "com.jakewharton.timber:timber:$versions.timber"
+        ]
+}

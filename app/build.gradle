@@ -5,18 +5,18 @@ apply plugin: 'androidx.navigation.safeargs'
 apply plugin: 'kotlin-kapt' // for annotation processing
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion versions.compileSdk
 
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding true
     }
 
     defaultConfig {
         applicationId "com.wxh.productive"
-        minSdkVersion 19
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode versions.versionCode
+        versionName versions.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
@@ -39,41 +39,41 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    // Kotlin components
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$version_kotlin"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutines"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutines"
+    implementation libs.kotlin.stdlib
 
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation "androidx.core:core-ktx:$version_core_ktx"
-    implementation "androidx.constraintlayout:constraintlayout:$version_constraint_layout"
+    api libs.coroutines.core
+    api libs.coroutines.android
+
+    implementation libs.androidx.coreKtx
+    implementation libs.androidx.appcompat
+    implementation libs.androidx.constraintLayout
 
     // material design, e.g. for drawer layout
-    implementation "com.google.android.material:material:$version_material"
+    implementation libs.material
 
     // navigation component
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.0'
+    implementation libs.androidx.navigation.fragment
     implementation "android.arch.navigation:navigation-ui-ktx:2.2.1"
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
-    // Testing
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
-    // timber for logging
-    implementation "com.jakewharton.timber:timber:$version_timber"
-
     // Room components
-    implementation "androidx.room:room-runtime:$rootProject.roomVersion"
-    implementation "androidx.room:room-ktx:$rootProject.roomVersion"
-    kapt "androidx.room:room-compiler:$rootProject.roomVersion" // annotation processor
-    androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
+    implementation libs.androidx.room.runtime
+    implementation libs.androidx.room.ktx
+    kapt libs.androidx.room.compiler // annotation processor
+    androidTestImplementation libs.androidx.room.testing
 
     // Lifecycle components
-    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.archLifecycleVersion"
-    kapt "androidx.lifecycle:lifecycle-compiler:$rootProject.archLifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.archLifecycleVersion"
+//    implementation "androidx.lifecycle:lifecycle-extensions:$version_archLifecycle"
+    kapt libs.androidx.lifecycle.compiler
+    implementation libs.androidx.lifecycle.viewmodel
+
+    // Testing
+    testImplementation libs.junit
+    androidTestImplementation libs.androidx.archCoreTesting
+    androidTestImplementation libs.androidx.test.junit
+    androidTestImplementation libs.androidx.test.espresso
+
+    // timber for logging
+    implementation libs.timber
 }
