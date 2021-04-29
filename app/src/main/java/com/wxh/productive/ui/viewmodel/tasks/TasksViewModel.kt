@@ -1,12 +1,12 @@
-package com.wxh.productive.presentation
+package com.wxh.productive.ui.viewmodel.tasks
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.wxh.productive.data.Task
-import com.wxh.productive.data.TaskRepository
-import com.wxh.productive.data.TaskRoomDatabase
+import com.wxh.productive.data.db.ProductiveDatabase
+import com.wxh.productive.data.model.Task
+import com.wxh.productive.data.repository.TaskRepository
 import kotlinx.coroutines.launch
 
 class TasksViewModel(application: Application) : AndroidViewModel(application) {
@@ -16,7 +16,7 @@ class TasksViewModel(application: Application) : AndroidViewModel(application) {
     val allTasks: LiveData<List<Task>>
 
     init {
-        val taskDao = TaskRoomDatabase.getDatabase(application, viewModelScope).taskDao()
+        val taskDao = ProductiveDatabase.getDatabase(application, viewModelScope).taskDao()
         taskRepository = TaskRepository(taskDao)
         allTasks = taskRepository.allTasks
     }

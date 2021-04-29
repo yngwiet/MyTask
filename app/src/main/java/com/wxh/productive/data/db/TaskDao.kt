@@ -1,7 +1,8 @@
-package com.wxh.productive.data
+package com.wxh.productive.data.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.wxh.productive.data.model.Task
 
 @Dao
 interface TaskDao {

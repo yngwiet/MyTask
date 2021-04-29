@@ -1,16 +1,17 @@
-package com.wxh.productive.data
+package com.wxh.productive.data.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.wxh.productive.data.model.Task
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
 @Database(entities = [Task::class], version = 1, exportSchema = false)
-abstract class TaskRoomDatabase : RoomDatabase() {
+abstract class ProductiveDatabase : RoomDatabase() {
 
     abstract fun taskDao(): TaskDao
 
@@ -45,12 +46,12 @@ abstract class TaskRoomDatabase : RoomDatabase() {
         // Singleton prevents multiple instances of database opening at the
         // same time.
         @Volatile
-        private var INSTANCE: TaskRoomDatabase? = null
+        private var INSTANCE: ProductiveDatabase? = null
 
         fun getDatabase(
             context: Context,
             scope: CoroutineScope
-        ): TaskRoomDatabase {
+        ): ProductiveDatabase {
             val tempInstance =
                 INSTANCE
             if (tempInstance != null) {
@@ -59,7 +60,7 @@ abstract class TaskRoomDatabase : RoomDatabase() {
             synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                    TaskRoomDatabase::class.java,
+                    ProductiveDatabase::class.java,
                     "task_database"
                 ).addCallback(
                     TaskDatabaseCallback(

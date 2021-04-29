@@ -1,4 +1,4 @@
-package com.wxh.productive.data
+package com.wxh.productive.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

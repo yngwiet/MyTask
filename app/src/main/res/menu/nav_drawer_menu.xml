@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/tasksFragment"
+        android:icon="@drawable/ic_assignment_black_24dp"
+        android:title="@string/tasks" />
+
+    <item
+        android:id="@+id/memoFragment"
+        android:icon="@drawable/ic_event_note_black_24dp"
+        android:title="@string/memo" />
 
     <item
         android:id="@+id/aboutFragment"

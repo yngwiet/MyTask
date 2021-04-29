@@ -1,4 +1,4 @@
-package com.wxh.productive.presentation
+package com.wxh.productive.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,7 +11,7 @@ import com.wxh.productive.R
 /**
  * A simple [Fragment] subclass.
  */
-class AboutFragment : Fragment() {
+class MemoFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

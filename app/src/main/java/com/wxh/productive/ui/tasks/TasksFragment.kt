@@ -1,4 +1,4 @@
-package com.wxh.productive.presentation
+package com.wxh.productive.ui.tasks
 
 import android.app.Activity
 import android.content.Intent
@@ -6,14 +6,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.wxh.productive.R
-import com.wxh.productive.data.Task
+import com.wxh.productive.data.model.Task
 import com.wxh.productive.databinding.FragmentTasksBinding
+import com.wxh.productive.ui.taskdetail.NewTaskActivity
+import com.wxh.productive.ui.viewmodel.tasks.TasksViewModel
 import timber.log.Timber
 
 class TasksFragment : Fragment() {
@@ -28,8 +29,7 @@ class TasksFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = DataBindingUtil.inflate(inflater,
-            R.layout.fragment_tasks, container, false)
+        binding = FragmentTasksBinding.inflate(inflater, container, false)
 
         val recyclerView = binding.tasksRecyclerview
         val adapter = TasksListAdapter()

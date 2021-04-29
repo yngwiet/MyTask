@@ -7,10 +7,6 @@ apply plugin: 'kotlin-kapt' // for annotation processing
 android {
     compileSdkVersion versions.compileSdk
 
-    buildFeatures {
-        dataBinding true
-    }
-
     defaultConfig {
         applicationId "com.wxh.productive"
         minSdkVersion versions.minSdk
@@ -20,6 +16,10 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+    }
+
+    buildFeatures {
+        viewBinding true
     }
 
     buildTypes {

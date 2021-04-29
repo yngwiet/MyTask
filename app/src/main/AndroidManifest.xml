@@ -3,7 +3,7 @@
     package="com.wxh.productive">
 
     <application
-        android:name=".presentation.MyTaskApplication"
+        android:name=".ProductiveApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -11,9 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".presentation.NewTaskActivity"></activity>
+        <activity android:name=".ui.taskdetail.NewTaskActivity"></activity>
 
-        <activity android:name=".presentation.MainActivity">
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

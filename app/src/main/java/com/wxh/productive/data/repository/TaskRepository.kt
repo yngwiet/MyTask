@@ -1,6 +1,8 @@
-package com.wxh.productive.data
+package com.wxh.productive.data.repository
 
 import androidx.lifecycle.LiveData
+import com.wxh.productive.data.db.TaskDao
+import com.wxh.productive.data.model.Task
 
 // Declares the DAO as a private property in the constructor. Pass in the DAO
 // instead of the whole database, because you only need access to the DAO

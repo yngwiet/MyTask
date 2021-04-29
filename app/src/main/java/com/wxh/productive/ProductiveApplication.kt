@@ -1,9 +1,9 @@
-package com.wxh.productive.presentation
+package com.wxh.productive
 
 import android.app.Application
 import timber.log.Timber
 
-class MyTaskApplication : Application() {
+class ProductiveApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
