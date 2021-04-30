@@ -1,39 +1,55 @@
 package com.wxh.productive.ui.tasks
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
+import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.wxh.productive.R
 import com.wxh.productive.data.model.Task
+import com.wxh.productive.databinding.TasksRecyclerviewItemBinding
 
-// TODO: 2020-08-23 pass viewmodel 
-class TasksListAdapter : RecyclerView.Adapter<TasksListAdapter.TaskViewHolder>() {
+class TasksListAdapter(
+    private val onTaskChecked: (id: Int, isChecked: Boolean) -> Unit
+) : ListAdapter<Task, TasksListAdapter.TaskViewHolder>(DiffCallback) {
 
-    private var mTasks: List<Task> = emptyList()
+    inner class TaskViewHolder(
+        binding: TasksRecyclerviewItemBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
 
-    inner class TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val taskCheckBox: CheckBox = itemView.findViewById(R.id.task_checkbox)
+        private val taskCheckBox: CheckBox = binding.checkboxTask
+        private val taskTitle: TextView = binding.textViewTask
+
+        fun bind(task: Task) {
+            taskTitle.text = task.title
+            taskCheckBox.setOnCheckedChangeListener(null)
+            taskCheckBox.isChecked = task.completed
+            taskCheckBox.setOnCheckedChangeListener { _, isChecked ->
+                onTaskChecked(task.id, isChecked)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
-        val taskItemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.tasks_recyclerview_item, parent, false)
-        return TaskViewHolder(taskItemView)
-    }
-
-    override fun getItemCount(): Int {
-        return mTasks.size
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = TasksRecyclerviewItemBinding.inflate(inflater, parent, false)
+        return TaskViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
-        holder.taskCheckBox.text = mTasks[position].title
-        holder.taskCheckBox.isChecked = mTasks[position].completed
+        holder.bind(getItem(position))
+    }
+}
+
+object DiffCallback : DiffUtil.ItemCallback<Task>() {
+
+    override fun areItemsTheSame(oldItem: Task, newItem: Task): Boolean {
+        return oldItem.id == newItem.id
     }
 
-    fun setTasks(tasks: List<Task>) {
-        mTasks = tasks
-        notifyDataSetChanged()
+    override fun areContentsTheSame(oldItem: Task, newItem: Task): Boolean {
+        return oldItem == newItem
     }
+
 }

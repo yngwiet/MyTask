@@ -9,6 +9,4 @@ data class Task(
     var detail: String,
     var completed: Boolean = false,
     @PrimaryKey(autoGenerate = true) val id: Int = 0
-) {
-
-}
+)

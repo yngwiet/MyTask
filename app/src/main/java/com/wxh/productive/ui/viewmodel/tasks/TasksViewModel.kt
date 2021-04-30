@@ -21,9 +21,6 @@ class TasksViewModel(application: Application) : AndroidViewModel(application) {
         allTasks = taskRepository.allTasks
     }
 
-    /**
-     * Launching a new coroutine to insert the data in a non-blocking way
-     */
     fun insert(task: Task) = viewModelScope.launch {
         taskRepository.insert(task)
     }
@@ -38,5 +35,11 @@ class TasksViewModel(application: Application) : AndroidViewModel(application) {
 
     fun update(task: Task) = viewModelScope.launch {
         taskRepository.update(task)
+    }
+
+    fun changeTaskCompletedStatus(id: Int, completed: Boolean) {
+        viewModelScope.launch {
+            taskRepository.changeTaskCompletedStatus(id, completed)
+        }
     }
 }
